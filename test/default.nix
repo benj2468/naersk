@@ -1,4 +1,4 @@
-{ system, fast, nixpkgs }:
+{ system, fast, nixpkgs, singleTest }:
 let
   sources = import ../nix/sources.nix;
 
@@ -39,7 +39,7 @@ let
   # To avoid that, we're recursively flattening all tests into a list, which
   # `nix-build` then evaluates in its entirety.
   runTests = tests:
-    pkgs.lib.collect pkgs.lib.isDerivation tests;
+    pkgs.lib.collect pkgs.lib.isDerivation (pkgs.lib.filterAttrs (name: _: if singleTest != null then name == singleTest else true) tests);
 
 in
 runTests (

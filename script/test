@@ -23,6 +23,11 @@ while [[ $# -gt 0 ]]; do
             extraArgs+=( --argstr nixpkgs "$2" )
             shift; shift;
             ;;
+        "--test")
+            echo "Running $2 Test only"
+            extraArgs+=( --argstr singleTest "$2" )
+            shift; shift;
+            ;;
     esac
 done
 

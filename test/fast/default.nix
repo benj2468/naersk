@@ -10,6 +10,7 @@ args: {
   git-dep-by-tag = import ./git-dep-by-tag args;
   git-dep-dup = import ./git-dep-dup args;
   git-single-repository-with-multiple-crates = import ./git-single-repository-with-multiple-crates args;
+  git-single-repository-with-multiple-crates-workspace = import ./git-single-repository-with-multiple-crates-workspace args;
   git-symlink = import ./git-symlink args;
   post-install-hook = import ./post-install-hook args;
   readme = import ./readme args;

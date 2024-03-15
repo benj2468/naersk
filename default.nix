@@ -27,8 +27,10 @@ let
   buildPackage = arg:
     let
       config = mkConfig arg;
+      
       gitDependencies =
-        libb.findGitDependencies { inherit (config) cargolock gitAllRefs gitSubmodules; };
+      let out = (libb.findGitDependencies { inherit (config) cargolock gitAllRefs gitSubmodules; }); in
+        lib.debug.traceSeq out out;
       cargoconfig =
         if builtinz.pathExists (toString config.root + "/.cargo/config")
         then (config.root + "/.cargo/config")

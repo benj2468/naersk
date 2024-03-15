@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "dep-a","dep-b"
+]
+
+[workspace.dependencies]
+dep-a = {path = "dep-a"}
+dep-b = {path = "dep-b"}
